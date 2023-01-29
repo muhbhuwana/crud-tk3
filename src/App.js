@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useNavigate,
+  useLocation
+} from "react-router-dom";
+import Produk from "./components/produk/produk";
+import TambahProduk from "./components/produk/tambahproduk";
+import Login from "./components/login/login";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} exact />
+        <Route path="/produk" element={<Produk />} />
+        <Route path="/addproduk" element={<TambahProduk />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
